@@ -1,0 +1,30 @@
+
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<form action="#"
+      th:action="@{/update/{id}(id=${user.id})}"
+      th:object="${user}"
+      method="post">
+    <label for="name">Name</label>
+    <input type="text" th:field="*{name}" id="name" placeholder="Name">
+    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+    <label for="surname">Surname</label>
+    <input type="text" th:field="*{surname}" id="surname" placeholder="Surname">
+    <span th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></span>
+    <label for="email">email</label>
+    <input type="text" th:field="*{email}" id="email" placeholder="email">
+    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+    <label for="email">image</label>
+    <input type="text" th:field="*{image}" id="image" placeholder="image">
+    <span th:if="${#fields.hasErrors('image')}" th:errors="*{image}"></span>
+    <input type="submit" value="Update User">
+</form>
+
+</body>
+</html>
